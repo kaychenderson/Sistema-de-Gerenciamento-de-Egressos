@@ -1,5 +1,5 @@
 <div>
-<img align="right" width="110" height="170" src="./images/Ufersa.png">
+<img align="right" width="110" height="170" src="./image/Ufersa.png">
 <br>
 
 <h1 align="center" style="font-weight: bold;"> 🎓 Sistema de Gerenciamento de Egressos 💻</h1>
