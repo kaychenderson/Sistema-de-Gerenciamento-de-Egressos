@@ -7,7 +7,7 @@
     <a href="#tech">Tecnologias</a> •
     <a href="#about">Sobre o Sistema</a> •
     <a href="#complexity">Complexidade</a> •
-    <a href="#colab">Cotribuidores</a> •
+    <a href="#colab">Cotribuidores</a>
 </p>
 
 ### PEX1241 - Algoritmos e Estrutura de dados I
