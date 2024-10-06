@@ -5,7 +5,7 @@
 #include "proj.h"
 
 // Função para verificar se uma string contém apenas números
-int validarNumeros(const char *str) {
+int validarNumeros(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i])) {
             return 0;
@@ -15,7 +15,7 @@ int validarNumeros(const char *str) {
 }
 
 // Função para verificar se uma string contém apenas letras
-int validarLetras(const char *str) {
+int validarLetras(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isalpha(str[i]) && str[i] != ' ') {
             return 0;
@@ -25,9 +25,9 @@ int validarLetras(const char *str) {
 }
 
 // Função para verificar o formato de um e-mail básico
-int validarEmail(const char *email) {
-    const char *arroba = strchr(email, '@');
-    const char *ponto = strrchr(email, '.');
+int validarEmail(char *email) {
+    char *arroba = strchr(email, '@');
+    char *ponto = strrchr(email, '.');
     return (arroba != NULL && ponto != NULL && arroba < ponto);
 }
 

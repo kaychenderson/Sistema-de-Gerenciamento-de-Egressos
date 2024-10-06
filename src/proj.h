@@ -23,7 +23,7 @@ typedef struct Egresso {
  * @param str A string a ser validada.
  * @return 1 se a string contiver apenas números, 0 caso contrário.
  */
-int validarNumeros(const char *str);
+int validarNumeros(char *str);
 
 /**
  * Valida se a string contém apenas letras.
@@ -31,7 +31,7 @@ int validarNumeros(const char *str);
  * @param str A string a ser validada.
  * @return 1 se a string contiver apenas letras, 0 caso contrário.
  */
-int validarLetras(const char *str);
+int validarLetras(char *str);
 
 /**
  * Valida se o email fornecido segue o formato correto.
@@ -39,7 +39,7 @@ int validarLetras(const char *str);
  * @param email A string do email a ser validada.
  * @return 1 se o email for válido, 0 caso contrário.
  */
-int validarEmail(const char *email);
+int validarEmail(char *email);
 
 /**
  * Verifica se a matrícula é única na lista de egressos.
