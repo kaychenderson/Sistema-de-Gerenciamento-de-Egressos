@@ -9,6 +9,11 @@
     <a href="#colab">Cotribuidores</a> •
 </p>
 
+### PEX1241 - Algoritmos e Estrutura de dados I
+###### Professora: [Rosana Rego](https://github.com/roscibely)
+
+#### Bacharelado Interdisciplinar em Tecnologia da Informação - UFERSA
+
 <div>
   <h2 id="tech" style="font-weight: bold; font-size: 2rem">Tecnologia Utilizada</h2> 
   <img align="center" alt="c" src="https://img.shields.io/badge/C-FFFFFF?style=for-the-badge&logo=c&logoColor=black"/>
