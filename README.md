@@ -51,7 +51,7 @@ gcc main.c proj.c -o main
   
   <h2 id="colab" style="font-weight: bold; font-size: 2rem">Contribuidores</h2>
  
-  <table>
+  <table align="center">
     <tr>
       <td align="center">
         <a href="#">
