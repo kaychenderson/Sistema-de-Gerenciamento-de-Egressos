@@ -269,9 +269,9 @@ void consultarPorAnoConclusao(Egresso *lista) {
 
 void carregarDados(Egresso **lista) {
     FILE *file = fopen("egressos.txt", "r");
-    if (!file) {
+    if (file == NULL) {
         printf("Erro ao abrir o arquivo de dados.\n");
-        return;
+        exit(1);
     }
 
     while (!feof(file)) {
@@ -296,9 +296,9 @@ void carregarDados(Egresso **lista) {
 
 void salvarDados(Egresso *lista) {
     FILE *file = fopen("egressos.txt", "w");
-    if (!file) {
+    if (file == NULL) {
         printf("Erro ao abrir o arquivo para salvar os dados.\n");
-        return;
+        exit(1);
     }
 
     Egresso *atual = lista;
