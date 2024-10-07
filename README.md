@@ -30,7 +30,7 @@ O Sistema de Gerenciamento de Egressos é uma aplicação em C desenvolvida para
 
 - Remover Egresso: Exclua um egresso do sistema, buscando-o pela matricula. Assim, é possível manter o cadastro atualizado, removendo registros antigos ou incorretos.
 
-- Ordenação por Nome: Liste os egressos em ordem alfabética para uma visualização mais organizada.
+- Ordenação por Nome: Liste os egressos em ordem alfabética para uma visualização mais organizada utilizando o QuickSort.
 
 - Armazenamento em Arquivo: Salve e carregue os dados de egressos de arquivos externos, garantindo a persistência das informações.
 
