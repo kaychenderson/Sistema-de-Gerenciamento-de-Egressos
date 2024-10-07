@@ -317,42 +317,98 @@ void salvarDados(Egresso *lista) {
     fclose(file);
 }
 
+// Função para trocar dois nós na lista de egressos
+void trocar(Egresso *a, Egresso *b) {
+    char temp[MAX_STR];  // Variável temporária para armazenar valores durante a troca
+
+    // Troca os nomes entre os nós a e b
+    strcpy(temp, a->nome);
+    strcpy(a->nome, b->nome);
+    strcpy(b->nome, temp);
+
+    // Troca os outros dados do egresso: matrícula
+    strcpy(temp, a->matricula);
+    strcpy(a->matricula, b->matricula);
+    strcpy(b->matricula, temp);
+
+    // Troca os cursos entre os dois nós
+    strcpy(temp, a->curso);
+    strcpy(a->curso, b->curso);
+    strcpy(b->curso, temp);
+
+    // Troca os anos de conclusão entre os nós
+    strcpy(temp, a->anoConclusao);
+    strcpy(a->anoConclusao, b->anoConclusao);
+    strcpy(b->anoConclusao, temp);
+
+    // Troca os status profissionais
+    strcpy(temp, a->statusProfissional);
+    strcpy(a->statusProfissional, b->statusProfissional);
+    strcpy(b->statusProfissional, temp);
+
+    // Troca os locais de trabalho
+    strcpy(temp, a->localDeTrabalho);
+    strcpy(a->localDeTrabalho, b->localDeTrabalho);
+    strcpy(b->localDeTrabalho, temp);
+
+    // Troca os e-mails entre os dois nós
+    strcpy(temp, a->email);
+    strcpy(a->email, b->email);
+    strcpy(b->email, temp);
+}
+
+// Função para particionar a lista com base no pivô
+Egresso* particionar(Egresso *inicio, Egresso *fim) {
+    Egresso *pivo = fim;  // Define o último elemento da lista como pivô
+    Egresso *i = inicio;  // i será usado para rastrear a posição de elementos menores que o pivô
+    Egresso *j = inicio;  // j percorre a lista até o pivô
+
+    // Percorre a lista de egressos até encontrar o pivô
+    while (j != fim) {
+        // Compara o nome de j com o nome do pivô
+        if (strcmp(j->nome, pivo->nome) < 0) {
+            // Se o nome de j for menor que o pivô, troca i e j
+            trocar(i, j);
+            i = i->lista;  // Avança o ponteiro i para o próximo nó
+        }
+        j = j->lista;  // Avança o ponteiro j para o próximo nó
+    }
+    // Troca o elemento i com o pivô para posicionar o pivô corretamente
+    trocar(i, fim);
+    return i;  // Retorna o novo pivô
+}
+
+// Função recursiva para aplicar o QuickSort na lista
+void quickSort(Egresso *inicio, Egresso *fim) {
+    // Verifica se a lista possui mais de um elemento e se os ponteiros são válidos
+    if (inicio != fim && inicio != NULL && fim != NULL && inicio != fim->lista) {
+        // Particiona a lista e retorna o pivô
+        Egresso *pivo = particionar(inicio, fim);
+        // Ordena a parte esquerda da lista (elementos menores que o pivô)
+        quickSort(inicio, pivo->lista);
+        // Ordena a parte direita da lista (elementos maiores que o pivô)
+        quickSort(pivo->lista, fim);
+    }
+}
+
+// Função para encontrar o último elemento da lista encadeada
+Egresso* encontrarUltimo(Egresso *lista) {
+    // Percorre a lista até encontrar o último nó (onde lista->lista é NULL)
+    while (lista != NULL && lista->lista != NULL) {
+        lista = lista->lista;  // Avança para o próximo nó
+    }
+    return lista;  // Retorna o último nó da lista
+}
+
+// Função para ordenar a lista de egressos por nome utilizando QuickSort
 void ordenarEgressosPorNome(Egresso **lista) {
+    // Verifica se a lista está vazia
     if (*lista == NULL) return;
 
-    Egresso *atual, *index;
-    char temp[MAX_STR];
-
-    for (atual = *lista; atual->lista != NULL; atual = atual->lista) {
-        for (index = atual->lista; index != NULL; index = index->lista) {
-            if (strcmp(atual->nome, index->nome) > 0) {
-                // Troca os nomes
-                strcpy(temp, atual->nome);
-                strcpy(atual->nome, index->nome);
-                strcpy(index->nome, temp);
-
-                // Troca os outros dados do egresso
-                strcpy(temp, atual->matricula);
-                strcpy(atual->matricula, index->matricula);
-                strcpy(index->matricula, temp);
-                strcpy(temp, atual->curso);
-                strcpy(atual->curso, index->curso);
-                strcpy(index->curso, temp);
-                strcpy(temp, atual->anoConclusao);
-                strcpy(atual->anoConclusao, index->anoConclusao);
-                strcpy(index->anoConclusao, temp);
-                strcpy(temp, atual->statusProfissional);
-                strcpy(atual->statusProfissional, index->statusProfissional);
-                strcpy(index->statusProfissional, temp);
-                strcpy(temp, atual->localDeTrabalho);
-                strcpy(atual->localDeTrabalho, index->localDeTrabalho);
-                strcpy(index->localDeTrabalho, temp);
-                strcpy(temp, atual->email);
-                strcpy(atual->email, index->email);
-                strcpy(index->email, temp);
-            }
-        }
-    }
+    // Encontra o último elemento da lista
+    Egresso *fim = encontrarUltimo(*lista);
+    // Aplica o algoritmo de QuickSort na lista
+    quickSort(*lista, fim);
 }
 
 void liberaLista(Egresso *lista) {

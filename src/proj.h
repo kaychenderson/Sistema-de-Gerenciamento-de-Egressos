@@ -115,8 +115,43 @@ void carregarDados(Egresso **lista);
  */
 void salvarDados(Egresso *lista);
 
+/* Funções de Ordenação */
+
 /**
- * Ordena a lista de egressos em ordem alfabética pelo nome.
+ * Função para trocar dois nós na lista de egressos.
+ *
+ * @param a Ponteiro para o primeiro egresso.
+ * @param b Ponteiro para o segundo egresso.
+ */
+void trocar(Egresso *a, Egresso *b);
+
+/**
+ * Função para particionar a lista com base no pivô.
+ *
+ * @param inicio Ponteiro para o início da lista.
+ * @param fim Ponteiro para o fim da lista.
+ * @return Ponteiro para o pivô após o particionamento.
+ */
+Egresso* particionar(Egresso *inicio, Egresso *fim);
+
+/**
+ * Função recursiva para aplicar o QuickSort na lista.
+ *
+ * @param inicio Ponteiro para o início da lista.
+ * @param fim Ponteiro para o fim da lista.
+ */
+void quickSort(Egresso *inicio, Egresso *fim);
+
+/**
+ * Função para encontrar o último elemento da lista encadeada.
+ *
+ * @param lista Ponteiro para o início da lista encadeada de egressos.
+ * @return Ponteiro para o último egresso na lista.
+ */
+Egresso* encontrarUltimo(Egresso *lista);
+
+/**
+ * Função para ordenar a lista de egressos por nome utilizando QuickSort.
  *
  * @param lista Ponteiro para o ponteiro da lista encadeada de egressos.
  */
