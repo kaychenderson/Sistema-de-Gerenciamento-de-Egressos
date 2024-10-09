@@ -67,7 +67,7 @@ void cadastrarEgresso(Egresso **lista);
 void listarEgressos(Egresso *lista);
 
 /**
- * Busca um egresso na lista encadeada de egressos com base no nome fornecido.
+ * Busca um egresso na lista encadeada de egressos com base na matricula fornecida.
  *
  * @param lista Ponteiro para o início da lista encadeada de egressos.
  */
