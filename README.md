@@ -6,7 +6,6 @@
 <p align="center">
     <a href="#tech">Tecnologias</a> •
     <a href="#about">Sobre o Sistema</a> •
-    <a href="#complexity">Complexidade</a> •
     <a href="#colab">Cotribuidores</a>
 </p>
 
