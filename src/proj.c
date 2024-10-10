@@ -234,7 +234,7 @@ void consultarPorStatus(Egresso *lista) {
         atual = atual->lista;
     }
 
-    if (!encontrado) {
+    if (encontrado == 0) {
         printf("Nenhum egresso com esse status encontrado.\n");
     }
 }
@@ -262,7 +262,7 @@ void consultarPorAnoConclusao(Egresso *lista) {
         atual = atual->lista;
     }
 
-    if (!encontrado) {
+    if (encontrado == 0) {
         printf("Nenhum egresso com esse ano de conclusão encontrado.\n");
     }
 }
@@ -287,7 +287,7 @@ void carregarDados(Egresso **lista) {
             novoEgresso->lista = *lista;
             *lista = novoEgresso;
         } else {
-            free(novoEgresso);
+            free(novoEgresso); 
         }
     }
 
