@@ -367,7 +367,7 @@ Egresso* particionar(Egresso *inicio, Egresso *fim) {
     while (j != fim) {
         // Compara o nome de j com o nome do pivô
         if (strcmp(j->nome, pivo->nome) < 0) {
-            // Se o nome de j for menor que o pivô, troca i e j
+            // Se o nome de j for menor (vir antes alfabeticamente) que o pivô, troca i e j
             trocar(i, j);
             i = i->lista;  // Avança o ponteiro i para o próximo nó
         }
@@ -384,9 +384,9 @@ void quickSort(Egresso *inicio, Egresso *fim) {
     if (inicio != fim && inicio != NULL && fim != NULL && inicio != fim->lista) {
         // Particiona a lista e retorna o pivô
         Egresso *pivo = particionar(inicio, fim);
-        // Ordena a parte esquerda da lista (elementos menores que o pivô)
+        // Ordena a parte esquerda da lista (elementos menores que o pivô / que vem antes alfabeticamente)
         quickSort(inicio, pivo->lista);
-        // Ordena a parte direita da lista (elementos maiores que o pivô)
+        // Ordena a parte direita da lista (elementos maiores que o pivô / que vem depois alfabeticamente)
         quickSort(pivo->lista, fim);
     }
 }
